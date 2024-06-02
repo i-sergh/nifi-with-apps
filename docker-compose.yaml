@@ -11,6 +11,9 @@ services:
       - 8182:8182
     environment:
       - NIFI_WEB_HTTP_PORT=8182
+    # if your cert is self signed and has a domain name in it, add domain name as extrahost  
+    extra_hosts:
+      - "<your domain name here>:<your id here>"
     volumes:
       - dk_nifi_state:/opt/nifi/nifi-current/state
       - dk_nifi_db:/opt/nifi/nifi-current/database_repository
